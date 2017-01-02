@@ -308,9 +308,41 @@
 
 
                          	   ]
-                         },
+                         }
                          
-                         {
+                      
+                      
+
+
+                     ]
+
+                },
+                {
+                    "name":"Mesozoic","colour":"#67C5CA","base":252.2,"top":66,
+                      "children":[
+                       {
+                            "name":"Cretaceous","colour":"#7FC64E", "base":145, "top":66,
+                              "children":[
+                                {
+                                    "name":"Coahulian","colour":"#8CCD60","base":145, "top":128.1
+                                },
+                                {
+                                    "name":"Comanchean", "colour":"#BFE48A", "base":128.1,"top":100.5
+                                },
+                                {
+                                    "name":"Gulfian","colour":"#D9EF74","base":100.5,"top":66
+                                }
+
+                              ] 
+                         }
+                     ]
+
+
+                },
+                {
+                    "name":"Cenozoic","colour":"#F2F91D","base":66,"top":0,
+                      "children":[
+                           {
                             "name":"Paleogene", "colour":"#FD9A52","base":66, "top":23.03,
                               "children":[
                                { "name":"","colour":"#ffffff",
@@ -344,38 +376,7 @@
                              ]
 
 
-                         }
-                      
-
-
-                     ]
-
-                },
-                {
-                    "name":"Mesozoic","colour":"#67C5CA","base":252.2,"top":66,
-                      "children":[
-                       {
-                            "name":"Cretaceous","colour":"#7FC64E", "base":145, "top":66,
-                              "children":[
-                                {
-                                    "name":"Coahulian","colour":"#8CCD60","base":145, "top":128.1
-                                },
-                                {
-                                    "name":"Comanchean", "colour":"#BFE48A", "base":128.1,"top":100.5
-                                },
-                                {
-                                    "name":"Gulfian","colour":"#D9EF74","base":100.5,"top":66
-                                }
-
-                              ] 
-                         }
-                     ]
-
-
-                },
-                {
-                    "name":"Cenozoic","colour":"#F2F91D","base":66,"top":0,
-                      "children":[
+                         },
                         {
 
                             "name":"Neogene","colour":"#FFE619","base":23.03, "top":2.588 ,
