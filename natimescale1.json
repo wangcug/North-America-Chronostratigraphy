@@ -1,5 +1,4 @@
-{
-"records": [
+ [
 {"oid":1,"typ":"int","nam":"Phanerozoic","lv1":1,"pid":"","col":"#9AD9DD","lag":0,"eag":541},
 {"oid":2,"typ":"int","nam":"Paleozoic","lv1":2,"pid":1,"col":"#99C08D","lag":252.2,"eag":541},
 {"oid":3,"typ":"int","nam":"Cambrian","lv1":3,"pid":2,"col":"#7FA056","lag":485.4,"eag":541},
@@ -100,5 +99,5 @@
 {"oid":89,"typ":"int","nam":"Venturian","lv1":5,"pid":94,"col":"#FFFFB3","lag":1.9,"eag":2.2},
 {"oid":90,"typ":"int","nam":"Wheelerian","lv1":5,"pid":94,"col":"#FFFFBF","lag":0,"eag":1.9}
 ]
-}
+
 
