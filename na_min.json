@@ -1,0 +1,8 @@
+[
+{"oid":1,"typ":"int","nam":"Phanerozoic","lv1":1,"pid":"","col":"#9AD9DD","lag":0,"eag":541},
+{"oid":2,"typ":"int","nam":"Paleozoic","lv1":2,"pid":1,"col":"#99C08D","lag":252.2,"eag":541},
+{"oid":3,"typ":"int","nam":"Cambrian","lv1":3,"pid":2,"col":"#7FA056","lag":485.4,"eag":541},
+{"oid":4,"typ":"int","nam":"Begadean","lv1":4,"pid":3,"col":"#8CB06C","lag": 520.1,"eag":541},
+{"oid":5,"typ":"int","nam":"Waucoban","lv1":4,"pid":3,"col":"#99C078","lag": 511.1,"eag":520.1}
+]
+
