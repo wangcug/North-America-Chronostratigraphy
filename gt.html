@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Geological Timechart in North America</title>
+<style>
+
+.node {
+  fill: #ddd;
+  stroke: #fff;
+}
+
+.label {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+</style>
+</head>
+<body>
+ <script src="d3.v3.min.js"></script>
+
+<script>
+
+var width = 1060,
+    height = 130;
+ var x=d3.scale.linear().range([0,width]);
+var y=d3.scale.linear().range([0,height]);
+
+
+var color = d3.scale.category20();
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+var rect = svg.selectAll("rect");
+var partition = d3.layout.partition()
+                  .sort(null)
+                
+                  .value(function(d) { return d.interval; });
+
+d3.json("Northamerica.json", function(error, root) {
+  
+  var nodes = partition.nodes(root);
+  var g=svg.selectAll("g")
+            .data(partition.nodes(root))
+             .enter().append("svg:g")
+            .on("click", clicked);
+  
+  g.append("svg:rect")
+      
+      .attr("x", function(d) { return x(d.x); })
+      .attr("y", function(d) { return y(d.y); })
+      .attr("width", function(d) { return x(d.dx); })
+      .attr("height", function(d) { return y(d.dy); })
+      .style("fill", function(d) {return d.colour; })
+      .attr("id",function(d){return "t"+d.oid;})
+    
+     
+
+  g.append("svg:text")
+          /* .data(nodes.filter(function(d){
+            return x(d.dx) > 6;
+           }))*/
+            .attr("id",function(d){return "l"+d.oid;})
+            .attr("transform", transform)
+            .text( function(d){return d.name; })
+            .attr("dy",".35em")//function(d){ return y(d.dy);});
+            .style("opacity", textDisply)
+            .attr("text-anchor", "middle")
+// zoom the selected ele)//ment
+function clicked(d){
+          x.domain([d.x, d.x + d.dx]).range([0, width]);
+          y.domain([d.y, 1]).range([d.y ? 15 : 0, height]);
+//var ky = (d.y? height-15:height)/(1-d.y);
+//var kx=width/d.dx;
+
+      var t=g.transition()
+             .duration(250)
+       // .attr("transform", function(d){ return "translate(" + x(d.x) + "," + y(d.y) + ")";});
+   
+     t.select("rect")
+       .attr("x", function(d) { return x(d.x); })
+       .attr("y", function(d) { return y(d.y); })
+       .attr("width", function(d) { return x(d.x + d.dx) - x(d.x); })
+       .attr('height', function(d) { return y(d.y + d.dy) - y(d.y); });
+     
+    t.select("text")
+        //.attr("x",labelX)
+     //.attr("y", function(d){ return y(d.y)+18;})
+     .attr("transform", transform)
+      .style("opacity", textDisply)// function(d) { return x(d.dx)-8 > d3.select("#l" + d.oid).node().getComputedTextLength() ? 1 : 0; });
+     .attr("text-anchor", "middle")
+       d3.event.stopPropagation();
+};
+
+
+function transform(d) {
+
+     return "translate(" + x(d.x +( d.dx-0) / 2) + "," + y(d.y + d.dy / 2) + ")";
+  };
+
+
+ function textDisply(d){
+    var rectWidth = parseFloat(d3.select("#t" + d.oid).attr("width")), 
+          rectX = parseFloat(d3.select("#t" + d.oid).attr("x"));
+ var labelWidth;
+  try {
+        labelWidth = d3.select("#l" + d.oid).node().getComputedTextLength();
+   } catch(err) {
+        labelWidth = 25;
+      } 
+if (rectWidth-8 <labelWidth){
+  return 0 ;
+ } else{ 
+return 1
+}
+
+}
+
+
+});
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
